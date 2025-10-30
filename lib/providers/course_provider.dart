@@ -26,6 +26,7 @@ class CourseProvider extends ChangeNotifier {
     try {
       // Load all hardcoded data
       CoursesData coursesData = CoursesData();
+      coursesData.init(); // Initialize course data
       _languages = coursesData.languages;
       _courses = coursesData.courses;
       _modules = coursesData.modules;
