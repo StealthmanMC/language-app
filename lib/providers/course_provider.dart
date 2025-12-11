@@ -26,7 +26,7 @@ class CourseProvider extends ChangeNotifier {
     try {
       // Load all hardcoded data
       CoursesData coursesData = CoursesData();
-      coursesData.init(); // Initialize course data
+      // Note: Initialization happens automatically in constructor
       _languages = coursesData.languages;
       _courses = coursesData.courses;
       _modules = coursesData.modules;
