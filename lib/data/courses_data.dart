@@ -4,12 +4,15 @@ import '../models/exercise_model.dart';
 
 class CoursesData {
   static final CoursesData _instance = CoursesData._internal();
+  bool _initialized = false;
 
   factory CoursesData() {
     return _instance;
   }
 
-  CoursesData._internal();
+  CoursesData._internal() {
+    _initializeData();
+  }
 
   late List<Language> languages;
   late Map<String, Course> courses;
@@ -17,7 +20,8 @@ class CoursesData {
   late Map<String, Lesson> lessons;
   late Map<String, Exercise> exercises;
 
-  void init() {
+  void _initializeData() {
+    if (_initialized) return;
     const uuid = Uuid();
 
     // Initialize languages
